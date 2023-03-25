@@ -1,0 +1,80 @@
+* {
+    /* font properties */
+    color: #ffffff;
+    font-family: Montserrat;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+h3 {
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 2em !important;
+}
+
+.fupa_widget>div {
+    background-color: #fff0;
+}
+
+.fupa_widget>div a {
+    text-decoration: none !important;
+    font-weight: 600;
+    font-size: 0.56em !important;
+}
+
+.fupa_widget,
+.fupa_widget table {
+    background: transparent !important;
+    font-size: 3.2em !important;
+}
+
+.fupa_widget .tab_header {
+    background: #590976 !important;
+}
+
+.fupa_widget td, h3  {
+    background-color: #590976 !important;
+    text-align: center !important;
+}
+
+td.tab_team_name span {
+    text-align: left !important;
+}
+
+.fupa_widget .widget_team_widget_tabelle table tr:nth-child(2n)>td,
+.fupa_widget table:not(.widget_liveticker) table:not(.spielerkader) tr:nth-child(2n)>td {
+    background-color: #8b20acd0 !important;
+}
+
+.widget_link,
+.widget_copy {
+    display: none !important;
+}
+
+.fupa_widget .widget_team_widget_tabelle tr.tabelle_farbe_absteiger td:first-child {
+    background: #cf001c !important;
+}
+
+.fupa_widget .widget_team_widget_tabelle tr.tabelle_farbe_absteiger_r td:first-child {
+    background: #ff2e4a !important;
+}
+
+.fupa_widget .widget_team_widget_tabelle .tabelle_pfeil_up {
+    -moz-transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg);
+    color: #25db00 !important;
+    text-shadow: none !important;
+}
+
+.fupa_widget .widget_team_widget_tabelle td.tab_wappen img {
+    padding: 0px !important;
+}
+
+.tabelle_nummer .tab_goals,
+.tabelle_nummer .tab_games,
+.tabelle_nummer .tab_diff {
+    font-size: 0.7em !important;
+}

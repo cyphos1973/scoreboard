@@ -1,0 +1,143 @@
+<head>
+    <script src="https://kit.fontawesome.com/27ad66089e.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 5em;
+            display: inline-block;
+            font-family: Montserrat;
+            color: #ffffff;
+            text-shadow: -1px 0 #7B1FA2, 0 1px #7B1FA2, 1px 0 #7B1FA2, 0 -1px #7B1FA2;
+        }
+
+        #home, #min {
+            width: 3em;
+            text-align: right;
+        }
+
+        #guest, #sec {
+            width: 3em;
+            text-align: left;
+        }
+
+        button {
+            font-family: Montserrat;
+            font-weight: 600;
+            font-size: 18px;
+            border-radius: 5px;
+            height: 3em;
+            min-width: fit-content;
+            width: 3em;
+            background-color: #7B1FA2;
+            color: white;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="timer">
+        <button id="start"><i class="fas fa-play"></i></button>
+        <button id="stop"><i class="fas fa-stop"></i></button>
+        <button id="clear"><i class="fas fa-history"></i></button><br>
+        <button onclick="addMinutes(1)">+ 1</button>
+        <button onclick="addMinutes(20)">+ 20</button>
+        <button onclick="addMinutes(105)">+ 105</button>
+        <h1 id="min">00</h1>
+        <h1>:</h1>
+        <h1 id="sec">00</h1>
+        <button onclick="addSeconds(1)">+ 1</button>
+        <button onclick="addSeconds(10)">+ 10</button>
+        <button onclick="addSeconds(30)">+ 30</button>
+    </div>
+
+
+    <div id="scoreboard">
+        <button id="homeDown" onclick="decrement('home')"><i class="fas fa-minus"></i></button>
+        <button id="homeUp" onclick="increment('home')"><i class="fas fa-plus"></i></button>
+        <h1 id="home">0</h1>
+        <h1> : </h1>
+        <h1 id="guest">0</h1>
+        <button id="guestUp" onclick="increment('guest')"><i class="fas fa-plus"></i></button>
+        <button id="guestDown" onclick="decrement('guest')"><i class="fas fa-minus"></i></button>
+    </div>
+    <button id="clear" onclick="reset()"><i class="fas fa-history"></i></button>
+</body>
+
+<script>
+    var h1 = document.getElementsByTagName('h1')[0],
+        start = document.getElementById('start'),
+        stop = document.getElementById('stop'),
+        clear = document.getElementById('clear'),
+        seconds = 0,
+        minutes = 0,
+        t;
+
+    function add() {
+        seconds++;
+        if (seconds > 59) {
+            seconds = 0;
+            minutes++;
+        }
+        document.getElementById('sec').innerHTML = (seconds > 9 ? seconds : "0" + seconds);
+        document.getElementById('min').innerHTML = (minutes ? (minutes > 9 ? minutes : "0" + minutes) : "00");
+
+        timer();
+    }
+
+    function timer() {
+        t = setTimeout(add, 1000);
+    }
+    // timer();
+
+
+    /* Start button */
+    start.onclick = timer;
+
+    /* Stop button */
+    stop.onclick = function () {
+        clearTimeout(t);
+    }
+
+    /* Clear button */
+    clear.onclick = function () {
+        seconds = 0;
+        minutes = 0;
+        document.getElementById('sec').innerHTML = (seconds > 9 ? seconds : "0" + seconds);
+        document.getElementById('min').innerHTML = (minutes ? (minutes > 9 ? minutes : "0" + minutes) : "00");
+    }
+
+    function addSeconds(sec) {
+        seconds += sec;
+        document.getElementById('sec').innerHTML = (seconds > 9 ? seconds : "0" + seconds);
+    }
+
+    function addMinutes(min) {
+        minutes += min;
+        document.getElementById('min').innerHTML = (minutes ? (minutes > 9 ? minutes : "0" + minutes) : "00");
+    }
+
+</script>
+
+<script>
+    function increment(elementId) {
+        let num = parseInt(document.getElementById(elementId).textContent);
+        document.getElementById(elementId).textContent = num + 1;
+    }
+
+    function decrement(elementId) {
+        let num = parseInt(document.getElementById(elementId).textContent);
+        if (num - 1 >= 0) {
+            document.getElementById(elementId).textContent = num - 1;
+        }
+    }
+
+    function reset() {
+        document.getElementById('home').textContent = 0;
+        document.getElementById('guest').textContent = 0;
+    }
+</script>
